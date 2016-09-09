@@ -494,6 +494,9 @@ void ResolveVertexDataArray(std::vector<T>& data_out, const Scope& source,
 
         unsigned int next = 0;
         for(int i : uvIndices) {
+            
+            if (i < 0) i = -i - 1;
+            
 			if (static_cast<size_t>(i) >= tempData.size()) {
                 DOMError("index out of range",&GetRequiredElement(source,indexDataElementName));
             }
